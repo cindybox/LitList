@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
-
+require("dotenv").config();
 const app = express();
 
 app.set("view engine", "ejs");
@@ -15,9 +15,9 @@ app.use(
   })
 );
 app.use(express.static("public"));
-
+// const url = process.env.ATLAS_URL + "/todoDB";
 mongoose.connect(
-  process.env.ATLAS_URL + "/todoDB",
+  process.env.ATLAS_URL,
   {
     useNewUrlParser: true
   }
